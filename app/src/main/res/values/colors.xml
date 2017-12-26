@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region [黑白 与 透明] -->
+    <!-- alpha channel = Opaque, 全透明 00, 完全不透明 FF -->
+    <!-- https://github.com/imknown/IMKDevelopmentDaily/blob/master/2016/05/25_android%20自定义%20控件%20与%20透明度.md#关于-不透明度 -->
+    <color name="white">@android:color/white</color>
+    <color name="whiteOpaque00">#00FFFFFF</color>
+    <color name="whiteOpaque10">#19FFFFFF</color>
+    <color name="whiteOpaque20">#33FFFFFF</color>
+    <color name="whiteOpaque30">#4CFFFFFF</color>
+    <color name="whiteOpaque40">#66FFFFFF</color>
+    <color name="whiteOpaque50">#7FFFFFFF</color>
+    <color name="whiteOpaque60">#99FFFFFF</color>
+    <color name="whiteOpaque70">#B2FFFFFF</color>
+    <color name="whiteOpaque80">#CCFFFFFF</color>
+    <color name="whiteOpaque90">#E5FFFFFF</color>
+    <color name="whiteOpaque100">#FFFFFFFF</color>
+    <color name="whiteTransparent00">@color/whiteOpaque100</color>
+    <color name="whiteTransparent10">@color/whiteOpaque90</color>
+    <color name="whiteTransparent20">@color/whiteOpaque80</color>
+    <color name="whiteTransparent30">@color/whiteOpaque70</color>
+    <color name="whiteTransparent40">@color/whiteOpaque60</color>
+    <color name="whiteTransparent50">@color/whiteOpaque50</color>
+    <color name="whiteTransparent60">@color/whiteOpaque40</color>
+    <color name="whiteTransparent70">@color/whiteOpaque30</color>
+    <color name="whiteTransparent80">@color/whiteOpaque20</color>
+    <color name="whiteTransparent90">@color/whiteOpaque10</color>
+    <color name="whiteTransparent100">@color/whiteOpaque00</color>
+
+    <color name="black">@android:color/black</color>
+    <color name="blackOpaque00">#00000000</color>
+    <color name="blackOpaque10">#19000000</color>
+    <color name="blackOpaque20">#33000000</color>
+    <color name="blackOpaque30">#4C000000</color>
+    <color name="blackOpaque40">#66000000</color>
+    <color name="blackOpaque50">#7F000000</color>
+    <color name="blackOpaque60">#99000000</color>
+    <color name="blackOpaque70">#B2000000</color>
+    <color name="blackOpaque80">#CC000000</color>
+    <color name="blackOpaque90">#E5000000</color>
+    <color name="blackOpaque100">#FF000000</color>
+    <color name="blackTransparent00">@color/blackOpaque100</color>
+    <color name="blackTransparent10">@color/blackOpaque90</color>
+    <color name="blackTransparent20">@color/blackOpaque80</color>
+    <color name="blackTransparent30">@color/blackOpaque70</color>
+    <color name="blackTransparent40">@color/blackOpaque60</color>
+    <color name="blackTransparent50">@color/blackOpaque50</color>
+    <color name="blackTransparent60">@color/blackOpaque40</color>
+    <color name="blackTransparent70">@color/blackOpaque30</color>
+    <color name="blackTransparent80">@color/blackOpaque20</color>
+    <color name="blackTransparent90">@color/blackOpaque10</color>
+    <color name="blackTransparent100">@color/blackOpaque00</color>
+
+    <!-- 透明 -->
+    <color name="colorTransparent">@android:color/transparent</color>
+    <!-- endregion -->
+
+    <color name="status_bar_color_common_white">@color/white</color>
+    <color name="status_bar_color_common_gray_for_lollipop">#CCCCCC</color>
+    <color name="status_bar_color_splash_and_login">#FEC500</color>
+    <color name="status_bar_color_study_and_exam">#1E2224</color>
+    <color name="status_bar_color_my_bonus">#D65746</color>
+
+    <color name="colorPrimaryDark">@color/white</color>
+    <color name="colorPrimary">#FED000</color>
+    <color name="colorAccent">#FFAA1C</color>
+    <color name="colorRewardDisp">#FFC911</color>
+    <color name="colorPoliceCaution">#FFE9A2</color>
+
+    <color name="common_bg">#fbfbfb</color>
+    <color name="common_bg1">#efefef</color>
+
+    <color name="common_txt">#353535</color>
+    <color name="common_txt_gray88">#888888</color>
+    <color name="common_txt_gray99">#999999</color>
+    <color name="common_txt_hint">#989898</color>
+    <color name="common_txt_hint2">#939393</color>
+
+    <color name="common_item_press">#f1f1f1</color>
+
+    <color name="test_center_press">#988337</color>
+
+    <color name="common_item_sep_line">#d2d2d2</color>
+
+    <color name="tips">#ff472e</color>
+
+    <color name="red_btn_bg_color">#DD6B55</color>
+
+    <color name="red">#FA0015</color>
+
+    <color name="yellow">#ffaa1c</color>
+
+    <color name="task_center_patrol_major">#9B84FF</color>
+    <color name="task_center_patrol_secondary">#F2EFFF</color>
+    <color name="task_center_police_patrol_major">#F58062</color>
+    <color name="task_center_police_patrol_secondary">#FFECE8</color>
+    <color name="task_center_redo_major">#3EC4D8</color>
+    <color name="task_center_redo_secondary">#E4F7FA</color>
+    <color name="task_center_invalid">#D2D2D2</color>
+
+    <color name="colorLine">#D2D2D2</color>
+    <color name="colorText">#353535</color>
+    <color name="mineMessageColorText">#FEC500</color>
+    <color name="eventDetailColorText">#23A6F4</color>
+    <color name="eventDetailColorBg">#E9F6FD</color>
+
+
+    <color name="black_35">#353535</color>
+
+    <color name="gray_93">#939393</color>
+    <color name="gray_d2">#d2d2d2</color>
+    <color name="gray_ff">#ffffff</color>
+
+    <color name="yellow_7e">#7e711f</color>
+</resources>
