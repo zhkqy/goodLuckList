@@ -4,12 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/listview"
+
+    <com.yilong.todolist.verticalviewpager.view.CustomView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        android:listSelector="@android:color/transparent" />
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:listSelector="@android:color/transparent" />
+
+    </com.yilong.todolist.verticalviewpager.view.CustomView>
+
 
 </android.support.constraint.ConstraintLayout>
