@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="150dp">
 
-    <ImageView
-        android:id="@+id/img"
-        android:background="@color/yellow"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
-
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="center|left"
-        android:paddingLeft="15dp"
-        android:text="继续下拉将创建任务"
-        android:textSize="18sp"
-        android:textColor="@android:color/white" />
+        android:layout_gravity="bottom">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/yellow" />
+
+        <TextView
+            android:id="@+id/tip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center|left"
+            android:paddingLeft="15dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
     </FrameLayout>
+
+</FrameLayout>
