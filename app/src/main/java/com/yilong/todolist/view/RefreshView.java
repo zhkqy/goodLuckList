@@ -16,6 +16,7 @@ import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.yilong.todolist.R;
+import com.yilong.todolist.dialog.ContentDialog;
 import com.yilong.todolist.utils.DisplayUtil;
 
 
@@ -27,7 +28,7 @@ import com.yilong.todolist.utils.DisplayUtil;
  * @company: 美丽说（北京）网络科技有限公司
  * @created Aug 30, 2013
  */
-public class RefreshView extends ViewGroup implements OnGestureListener {
+public class RefreshView extends ViewGroup implements OnGestureListener, ContentDialog.Listener {
     private final static int DEFAULT_VIEW_HEIGHT = 150;
     private final static int DEFAULT_TRIGGER_HEIGHT = 50;
     private final static int DEFAULT_MIN_REFRESH_DURING = 700;
@@ -60,6 +61,19 @@ public class RefreshView extends ViewGroup implements OnGestureListener {
     private boolean disAllowTouchEnvent = false;
 
     private TextView tip;
+
+    private ContentDialog contentDialog;
+
+    @Override
+    public void resultContentSuccess(String content) {
+
+    }
+
+    @Override
+    public void resultNoContentError() {
+        tip.setText("");
+        close();
+    }
 
     /**
      * 刷新接口
@@ -143,7 +157,14 @@ public class RefreshView extends ViewGroup implements OnGestureListener {
             int duration = (int) (back_duration_max * Math.abs(dy) / (float) headView
                     .getHeight());
             scroller.startScroll(0, distanceY, 0, dy, duration);
+//            tip.setText("");
             invalidate();
+
+            if (contentDialog == null) {
+                contentDialog = new ContentDialog(getContext(), R.style.listDialog);
+                contentDialog.setListener(this);
+            }
+            contentDialog.show();
             if (listener != null)
                 listener.onRefresh();
         } else if (state == NORMAL) {

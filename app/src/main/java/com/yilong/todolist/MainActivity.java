@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 
         @Override
         public int getCount() {
-            return 2;
+            return 22;
         }
 
         @Override
