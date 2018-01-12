@@ -9,8 +9,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.yilong.todolist.verticalviewpager.view.RefreshView;
+
 
 public class MainActivity extends Activity {
+
+
+    private RefreshView progressbarRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +23,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         ListView listview = findViewById(R.id.listview);
-
+        progressbarRefresh = findViewById(R.id.progressbar_refresh);
+        progressbarRefresh.setSlidablyView(listview);
         listview.setAdapter(new ListAdapter());
 
     }
@@ -29,7 +35,7 @@ public class MainActivity extends Activity {
 
         @Override
         public int getCount() {
-            return 22;
+            return 7;
         }
 
         @Override
@@ -76,7 +82,7 @@ public class MainActivity extends Activity {
             }
             int b = startColor[2] + bluePadding * i;
 
-            img.setBackgroundColor(Color.rgb(r,g,b));
+            img.setBackgroundColor(Color.rgb(r, g, b));
             return v;
 
         }

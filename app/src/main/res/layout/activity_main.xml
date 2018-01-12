@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <com.yilong.todolist.verticalviewpager.view.CustomView
+    <com.yilong.todolist.verticalviewpager.view.RefreshView
+        android:id="@+id/progressbar_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,7 +17,6 @@
             android:dividerHeight="0dp"
             android:listSelector="@android:color/transparent" />
 
-    </com.yilong.todolist.verticalviewpager.view.CustomView>
-
+    </com.yilong.todolist.verticalviewpager.view.RefreshView>
 
 </android.support.constraint.ConstraintLayout>
