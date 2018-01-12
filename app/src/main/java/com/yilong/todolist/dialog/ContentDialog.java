@@ -81,10 +81,11 @@ public class ContentDialog extends Dialog {
 
     @Override
     public void dismiss() {
+        String str = editText.getText().toString();
         editText.setVisibility(View.INVISIBLE);
+        editText.setText("");
         super.dismiss();
         if (listener != null) {
-            String str = editText.getText().toString();
             if (!TextUtils.isEmpty(str)) {
                 listener.resultContentSuccess(str);
             } else {
@@ -92,7 +93,6 @@ public class ContentDialog extends Dialog {
             }
         }
 
-        editText.setText("");
 
     }
 }

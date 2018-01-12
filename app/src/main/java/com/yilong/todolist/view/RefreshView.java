@@ -167,7 +167,7 @@ public class RefreshView extends ViewGroup implements OnGestureListener, Content
             int duration = (int) (back_duration_max * Math.abs(dy) / (float) headView
                     .getHeight());
             scroller.startScroll(0, distanceY, 0, dy, duration);
-//            ff.setVisibility(View.INVISIBLE);
+          tip.setText("");
             invalidate();
 
             if (contentDialog == null) {
