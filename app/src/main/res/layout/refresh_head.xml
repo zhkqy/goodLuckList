@@ -4,15 +4,11 @@
     android:layout_height="150dp">
 
     <FrameLayout
+        android:id="@+id/ff"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom">
 
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/yellow" />
 
         <TextView
             android:id="@+id/tip"

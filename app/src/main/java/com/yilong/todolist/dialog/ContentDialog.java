@@ -2,6 +2,7 @@ package com.yilong.todolist.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -36,6 +37,7 @@ public class ContentDialog extends Dialog {
     private void initView() {
         View contentView = View.inflate(mContext, R.layout.dialog_content, null);
         editText = contentView.findViewById(R.id.editText);
+        editText.setBackgroundColor(Color.rgb(81, 57, 157));
         setCanceledOnTouchOutside(true);
         setContentView(contentView);
     }
@@ -72,13 +74,14 @@ public class ContentDialog extends Dialog {
 
     @Override
     public void show() {
+        editText.setVisibility(View.VISIBLE);
         super.show();
         setHeight();
-        KeyBoardUtils.openKeyboard(editText);
     }
 
     @Override
     public void dismiss() {
+        editText.setVisibility(View.INVISIBLE);
         super.dismiss();
         if (listener != null) {
             String str = editText.getText().toString();
@@ -88,6 +91,8 @@ public class ContentDialog extends Dialog {
                 listener.resultNoContentError();
             }
         }
+
+        editText.setText("");
 
     }
 }

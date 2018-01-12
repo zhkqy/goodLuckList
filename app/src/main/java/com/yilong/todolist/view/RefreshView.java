@@ -2,6 +2,7 @@ package com.yilong.todolist.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -11,10 +12,12 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Scroller;
 import android.widget.TextView;
 
+import com.yilong.todolist.MainActivity;
 import com.yilong.todolist.R;
 import com.yilong.todolist.dialog.ContentDialog;
 import com.yilong.todolist.utils.DisplayUtil;
@@ -61,12 +64,16 @@ public class RefreshView extends ViewGroup implements OnGestureListener, Content
     private boolean disAllowTouchEnvent = false;
 
     private TextView tip;
+    private FrameLayout ff;
 
     private ContentDialog contentDialog;
 
     @Override
     public void resultContentSuccess(String content) {
-
+        tip.setText("");
+        MainActivity.add(content);
+        scrollTo(0, view_height);
+        state = NORMAL;
     }
 
     @Override
@@ -108,6 +115,9 @@ public class RefreshView extends ViewGroup implements OnGestureListener, Content
         headView = activity.getLayoutInflater().inflate(R.layout.refresh_head,
                 null);
         tip = headView.findViewById(R.id.tip);
+        ff = headView.findViewById(R.id.ff);
+        ff.setBackgroundColor(Color.rgb(81, 57, 157));
+
         tip.setText("继续下拉将创建新任务");
         addView(headView);
         scroller = new Scroller(context);
@@ -157,7 +167,7 @@ public class RefreshView extends ViewGroup implements OnGestureListener, Content
             int duration = (int) (back_duration_max * Math.abs(dy) / (float) headView
                     .getHeight());
             scroller.startScroll(0, distanceY, 0, dy, duration);
-//            tip.setText("");
+//            ff.setVisibility(View.INVISIBLE);
             invalidate();
 
             if (contentDialog == null) {
@@ -327,7 +337,7 @@ public class RefreshView extends ViewGroup implements OnGestureListener, Content
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
                             float distanceY) {
-
+//        ff.setVisibility(View.VISIBLE);
         float ratio = getScrollY() / (float) headView.getHeight();
         ratio *= 0.7;
         distanceY = distanceY * ratio;
@@ -353,6 +363,9 @@ public class RefreshView extends ViewGroup implements OnGestureListener, Content
             tip.setText("松手将创建新任务");
             state = WAIT_ADD;
         } else if (d < trigger_height && state == WAIT_ADD) {
+            state = NORMAL;
+            tip.setText("继续下拉将创建新任务");
+        } else if (d < trigger_height && state == NORMAL) {
             state = NORMAL;
             tip.setText("继续下拉将创建新任务");
         }
