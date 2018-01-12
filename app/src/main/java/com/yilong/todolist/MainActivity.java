@@ -9,11 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.yilong.todolist.verticalviewpager.view.RefreshView;
+import com.yilong.todolist.view.RefreshView;
 
 
 public class MainActivity extends Activity {
-
 
     private RefreshView progressbarRefresh;
 
@@ -29,13 +28,12 @@ public class MainActivity extends Activity {
 
     }
 
-
     class ListAdapter extends BaseAdapter {
 
 
         @Override
         public int getCount() {
-            return 7;
+            return 2;
         }
 
         @Override
@@ -54,13 +52,13 @@ public class MainActivity extends Activity {
             ImageView img = v.findViewById(R.id.img);
 
 //紫色
-//            int[] startColor = {81, 57, 157};
-//            int[] endColor = {189, 176, 227};
+            int[] startColor = {81, 57, 157};
+            int[] endColor = {189, 176, 227};
 
 //            红色
 
-            int[] startColor = {240, 0, 0};
-            int[] endColor = {250, 254, 69};
+//            int[] startColor = {240, 0, 0};
+//            int[] endColor = {250, 254, 69};
 
             int redPadding = (endColor[0] - startColor[0]) / getCount();
             if (redPadding > 15) {
@@ -74,7 +72,6 @@ public class MainActivity extends Activity {
                 greenPadding = 15;
             }
             int g = startColor[1] + greenPadding * i;
-
 
             int bluePadding = (endColor[2] - startColor[2]) / getCount();
             if (bluePadding > 15) {

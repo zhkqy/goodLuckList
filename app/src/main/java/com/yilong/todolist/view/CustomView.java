@@ -1,4 +1,4 @@
-package com.yilong.todolist.verticalviewpager.view;
+package com.yilong.todolist.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
