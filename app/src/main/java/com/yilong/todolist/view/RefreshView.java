@@ -17,9 +17,9 @@ import android.widget.ListView;
 import android.widget.Scroller;
 import android.widget.TextView;
 
-import com.yilong.todolist.MainActivity;
 import com.yilong.todolist.R;
 import com.yilong.todolist.dialog.ContentDialog;
+import com.yilong.todolist.fragment.MyListFragment;
 import com.yilong.todolist.utils.DisplayUtil;
 
 
@@ -71,7 +71,7 @@ public class RefreshView extends ViewGroup implements OnGestureListener, Content
     @Override
     public void resultContentSuccess(String content) {
         tip.setText("");
-        MainActivity.add(content);
+        MyListFragment.add(content);
         scrollTo(0, view_height);
         state = NORMAL;
     }
@@ -167,7 +167,7 @@ public class RefreshView extends ViewGroup implements OnGestureListener, Content
             int duration = (int) (back_duration_max * Math.abs(dy) / (float) headView
                     .getHeight());
             scroller.startScroll(0, distanceY, 0, dy, duration);
-          tip.setText("");
+            tip.setText("");
             invalidate();
 
             if (contentDialog == null) {
