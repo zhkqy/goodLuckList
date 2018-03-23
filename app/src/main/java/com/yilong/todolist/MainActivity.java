@@ -1,29 +1,25 @@
 package com.yilong.todolist;
 
-import android.support.v4.app.Fragment;
+import android.content.Context;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.yilong.todolist.activity.BaseActivity;
-import com.yilong.todolist.adapter.ViewPageAdapter;
-import com.yilong.todolist.fragment.FolderFragment;
-import com.yilong.todolist.fragment.MyListFragment;
-import com.yilong.todolist.fragment.SettingFragment;
-import com.yilong.todolist.view.VerticalViewPager;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.yilong.todolist.view.FolderView;
+import com.yilong.todolist.view.MyListView;
+import com.yilong.todolist.view.SettingView;
+import com.yilong.todolist.view.ZhkqyScrollview;
 
 import butterknife.BindView;
 
-
 public class MainActivity extends BaseActivity {
 
+    @BindView(R.id.scrollview)
+    ZhkqyScrollview scrollview;
 
-    @BindView(R.id.viewpager)
-    VerticalViewPager verticalViewPager;
-
-    ViewPageAdapter pageAdapter;
-
-    List<Fragment> fragmentList = new ArrayList<>();
+    @BindView(R.id.container)
+    LinearLayout container;
 
     @Override
     protected void setContentView() {
@@ -38,16 +34,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initUI() {
 
-        pageAdapter = new ViewPageAdapter(getSupportFragmentManager());
-
-        fragmentList.clear();
-        fragmentList.add(new SettingFragment());
-        fragmentList.add(new FolderFragment());
-        fragmentList.add(new MyListFragment());
-
-        pageAdapter.setFragments(fragmentList);
-
-        verticalViewPager.setAdapter(pageAdapter);
     }
 
     @Override
@@ -58,7 +44,27 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
 
+        WindowManager wm = (WindowManager) this
+                .getSystemService(Context.WINDOW_SERVICE);
+        int height = wm.getDefaultDisplay().getHeight();
+
+        SettingView settingView = new SettingView(this);
+        LinearLayout.LayoutParams settingparams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, height);
+        settingView.setLayoutParams(settingparams);
+        settingView.setBackgroundResource(R.color.red_btn_bg_color);
+        container.addView(settingView);
+
+        FolderView folderView = new FolderView(this);
+        LinearLayout.LayoutParams folderparams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, height);
+        folderView.setBackgroundResource(R.color.yellow);
+        folderView.setLayoutParams(folderparams);
+        container.addView(folderView);
+
+        MyListView myListView = new MyListView(this);
+        LinearLayout.LayoutParams listparams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, height);
+        myListView.setBackgroundResource(R.color.task_center_patrol_major);
+        myListView.setLayoutParams(listparams);
+        container.addView(myListView);
+
     }
-
-
 }
